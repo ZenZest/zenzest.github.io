@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-262MLYPQJ3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-262MLYPQJ3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenZest Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('image.png') no-repeat center center/cover;
+            filter: blur(2px);
+            z-index: -1; /* Ensure the blurred image is behind the content */
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(131, 150, 211, 0.5); /* Adjust the color or opacity as needed */
+            opacity: 0.5; /* Adjust the opacity to blend with the background image */
+            z-index: -1; /* Ensure the overlay is behind the content but above the blurred image */
+        }        .hero h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 2s ease-in-out;
+        }
+        .hero .cta-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: fadeInUp 2s ease-in-out;
+        }
+        .hero .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-5px);
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .container {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section {
+            margin: 40px 100px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #e74c3c;
+            position: relative;
+            animation: bounceIn 1s ease-in-out;
+        }
+        .section h2::before, .section h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background-color: #e74c3c;
+            bottom: -10px;
+        }
+        .section h2::before {
+            left: 50%;
+            transform: translateX(-60px);
+        }
+        .section h2::after {
+            right: 50%;
+            transform: translateX(60px);
+        }
+        .section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .about, .mental-health, .coffee, .support {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .about .content, .mental-health .content, .coffee .content, .support .content {
+            flex: 1 1 45%;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+        .about .content:hover, .mental-health .content:hover, .coffee .content:hover, .support .content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .about .image, .mental-health .image, .coffee .image, .support .image {
+            flex: 1 1 45%;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+        .about .image img, .mental-health .image img, .coffee .image img, .support .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: grayscale(100%);
+        }
+        .about .image:hover img, .mental-health .image:hover img, .coffee .image:hover img, .support .image:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+        .cta {
+            text-align: center;
+            margin: 60px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+        .cta a {
+            padding: 15px 30px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .cta a:hover {
+            background-color: #c0392b;
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInDown {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes heroFadeIn {
+            0% {
+                background: rgba(0, 0, 0, 0);
+            }
+            100% {
+                background: rgba(0, 0, 0, 0.5);
+            }
+        }
+        @keyframes bounceIn {
+            0%, 100%, 20%, 50%, 80% {
+                transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+            0% {
+                opacity: 0;
+                transform: scale3d(.3, .3, .3);
+            }
+            20% {
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+            50% {
+                transform: scale3d(.9, .9, .9);
+            }
+            80% {
+                transform: scale3d(1.03, 1.03, 1.03);
+                opacity: 1;
+            }
+            100% {
+                transform: scale3d(1, 1, 1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>ZenZest Coffee</h1>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Zero Jitters, All Joy</h1>
+        <a href="#shop" class="cta-button">Try ZenZest Decaf Today!</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about">
+        <div class="content">
+            <h2>About ZenZest</h2>
+            <p>ZenZest Coffee is crafted for those who love the taste of coffee but not the jittery side effects. Our decaf coffee offers a smooth, rich flavor with zero jitters, so you can enjoy your favorite beverage any time of day.</p>
+        </div>
+        <div class="image">
+            <img src="coffee.png" alt="About ZenZest">
+        </div>
+    </section>
+
+    <!-- Mental Health Section -->
+    <section class="section mental-health">
+        <div class="image">
+            <img src="mental.png" alt="Mental Health">
+        </div>
+        <div class="content">
+            <h2>Mental Health Benefits</h2>
+            <p>At ZenZest, we believe in the power of coffee to enhance well-being. Our decaf blend is specially formulated to reduce anxiety and promote relaxation, making it a perfect choice for mental wellness.</p>
+        </div>
+    </section>
+
+    <!-- Coffee Section -->
+    <section class="section coffee">
+        <div class="content">
+            <h2>Our Coffee</h2>
+            <p>We source only the highest quality beans for our decaf coffee, ensuring a full-bodied flavor with every sip. Our unique decaffeination process preserves the rich taste of coffee without the caffeine.</p>
+        </div>
+        <div class="image">
+            <img src="beans.png" alt="Our Coffee">
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="section support">
+        <div class="image">
+            <img src="support.png" alt="Support">
+        </div>
+        <div class="content">
+            <h2>Customer Support</h2>
+            <p>Our friendly customer support team is here to answer any questions you have about ZenZest Coffee. Whether you're curious about our blends or need help with an order, we're always happy to assist.</p>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="cta">
+        <a href="#shop">Shop Now</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 ZenZest Coffee. All rights reserved.</p>
+    </footer>
+</body>
+</html>
